@@ -71,7 +71,19 @@ texts:
 	text: The string of the text-block in the bar-chart
     	text_function: The function of text (e.g., title, legend, etc)
     	bbox: The bounding box surrounding the text-block
+
+table: Underlying table used to create the chart saved in the following format.
+		
+		None |	C_1 	C_2 	C_3	...	C_N
+		-----|---------------------------------------
+		R_1  |	V_11	V_21	V_31	... 	V_N1
+		R_2  |	V_12	V_22	V_32	... 	V_N2
+		...  |	...	...	... 	... 	...
+		R_M  |	V_1M	V_2M	V_3M	... 	V_NM
+	
 ```
+Since numpy arrays are not supporte by JSON, the tables are saved as nested lists. Converting them to numpy array, e.g., `table = np.array(metadata['table'])` might provide easier access to the elements, i.e., `table[1:,1:]` contains the numeric data, `table[1:,0]` contains the row names and `table[0,1:]` contain the column names.
+
 The annotations expand to about 800 MB.
 # Contact
 Feel free to contact us (contact details on the paper PDF) about any questions, suggestions or comments about either the dataset or the methods used in the paper.
