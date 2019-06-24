@@ -73,6 +73,13 @@ texts:
     	bbox: The bounding box surrounding the text-block
 
 table: Underlying table used to create the chart saved in the following format.
+
+	single row charts:
+		C_1 	C_2 	C_3	...	C_N
+		-------------------------------------
+		V_1	V_2	V_3	... 	V_N
+		
+	multi row charts:
 		
 		None |	C_1 	C_2 	C_3	...	C_N
 		-----|---------------------------------------
@@ -82,7 +89,7 @@ table: Underlying table used to create the chart saved in the following format.
 		R_M  |	V_1M	V_2M	V_3M	... 	V_NM
 	
 ```
-Since numpy arrays are not supporte by JSON, the tables are saved as nested lists. Converting them to numpy array, e.g., `table = np.array(metadata['table'])` might provide easier access to the elements, i.e., `table[1:,1:]` contains the numeric data, `table[1:,0]` contains the row names and `table[0,1:]` contain the column names.
+Since numpy arrays are not supporte by JSON, the tables are saved as nested lists. Converting them to numpy array, e.g., `table = np.array(metadata['table'])` might provide easier access to the elements, e.g., for multi-row charts, `table[1:,1:]` contains the numeric data, `table[1:,0]` contains the row names and `table[0,1:]` contain the column names.
 
 The annotations expand to about 800 MB.
 # Contact
